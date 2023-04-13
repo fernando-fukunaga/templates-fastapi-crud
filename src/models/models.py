@@ -13,7 +13,7 @@ class Usuarios(Base):
 
     id = Column(Integer, primary_key=True)
     login = Column(String(55))
-    senha = Column(String(3))
+    senha = Column(String(100))
     administrador = Column(Integer)
 
 class Produtos(Base):
@@ -34,6 +34,6 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 # Criando o administrador
-adm_user = Usuarios(login="admin", senha="123", administrador=1)
+'''adm_user = Usuarios(login="admin", senha="123", administrador=1)
 session.add(adm_user)
-session.commit()
+session.commit()'''

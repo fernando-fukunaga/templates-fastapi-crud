@@ -4,12 +4,13 @@ def response_usuario_cadastrado(usuario):
     else:
         admin = False
     response = {
-        "status": {
-        "mensagem": "Usuário cadastrado com sucesso",
-        "status_code": 200
-        },
         "dados": {
         "login": usuario.login,
         "admin": admin
+        },        
+        "status": {
+        "mensagem": "Usuário cadastrado com sucesso",
+        "status_code": 200
         }
     }
+    return response
