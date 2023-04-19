@@ -4,7 +4,7 @@ from src.utils.auth import *
 from src.templates.responses_produto import *
 from src.models.models import *
 
-router = APIRouter()
+router = APIRouter(tags=["Produtos"])
 
 @router.post('/cadastrar-produto')
 async def cadastra_produto(dados_produto: DadosNovoProduto):

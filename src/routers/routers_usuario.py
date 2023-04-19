@@ -4,7 +4,7 @@ from src.utils.auth import *
 from src.templates.responses_usuario import *
 from src.models.models import *
 
-router = APIRouter()
+router = APIRouter(tags=["Usuarios"])
 
 @router.post('/cadastrar-usuario')
 async def cadastra_usuario(dados_cadastro: DadosCadastro):
