@@ -17,14 +17,19 @@ async def cadastra_usuario(dados_cadastro: DadosCadastro):
     session.commit()
     return response_usuario_cadastrado(novo_usuario)
 
-@router.get('/resgatar-usuario')
+@router.get('/listar-usuarios')
+async def listar_usuarios():
+    usuarios = session.query(Usuarios).all()
+    return response_listando_usuarios(usuarios)
+
+@router.get('/resgatar-usuario/{login}')
 async def resgata_usuario(login: str):
     usuario_encontrado = session.query(Usuarios).filter_by(login=login).first()
     if usuario_encontrado == None:
         raise HTTPException(status_code=404, detail="Usuário não encontrado")
     return response_usuario_encontrado(usuario_encontrado)
 
-@router.put('/editar-usuario')
+@router.put('/editar-usuario/{login}')
 async def edita_usuario(login: str, dados_cadastro: DadosCadastro):
     usuario_encontrado = session.query(Usuarios).filter_by(login=login).first()
     if usuario_encontrado == None:
@@ -36,7 +41,7 @@ async def edita_usuario(login: str, dados_cadastro: DadosCadastro):
     session.commit()
     return response_usuario_editado(usuario_encontrado)
 
-@router.delete('/excluir-usuario')
+@router.delete('/excluir-usuario/{login}')
 async def excluir_usuario(login: str):
     usuario_encontrado = session.query(Usuarios).filter_by(login=login).first()
     if usuario_encontrado == None:

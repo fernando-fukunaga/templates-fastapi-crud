@@ -10,3 +10,8 @@ class DadosNovoProduto(BaseModel):
     categoria: str
     descricao: str
     preco: float
+
+class DadosSimplesDoUsuario(BaseModel):
+    id: int
+    login: str
+    administrador: bool
