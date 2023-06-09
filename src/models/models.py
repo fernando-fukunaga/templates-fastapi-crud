@@ -15,3 +15,9 @@ class DadosSimplesDoUsuario(BaseModel):
     id: int
     login: str
     administrador: bool
+
+class DadosSimplesDoProduto(BaseModel):
+    nome: str
+    codigo: str
+    preco: float
+    estoque: int

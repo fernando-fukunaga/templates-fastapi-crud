@@ -20,8 +20,9 @@ class Produtos(Base):
     __tablename__ = 'produtos'
 
     id = Column(Integer, primary_key=True)
-    nome_produto = Column(String(20))
-    categoria_produto = Column(String(20))
+    nome_produto = Column(String(55))
+    codigo_produto = Column(String(100))
+    categoria_produto = Column(String(25))
     desc_produto = Column(String(100))
     preco_produto = Column(DECIMAL(4,2))
     estoque = Column(Integer, default=0)
