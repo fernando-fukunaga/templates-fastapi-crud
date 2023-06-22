@@ -3,12 +3,12 @@ from pydantic import BaseModel
 class DadosCadastro(BaseModel):
     login: str
     senha: str
-    permissao_de_adm: int
+    administrador: bool | None = None
 
 class DadosNovoProduto(BaseModel):
     nome: str
     categoria: str
-    descricao: str
+    descricao: str | None = None
     preco: float
 
 class DadosSimplesDoUsuario(BaseModel):
@@ -20,4 +20,4 @@ class DadosSimplesDoProduto(BaseModel):
     nome: str
     codigo: str
     preco: float
-    estoque: int
+    estoque_disp: int

@@ -1,13 +1,14 @@
-from ..models.models import DadosSimplesDoUsuario
+from src.schemas.schemas import DadosSimplesDoUsuario
+from src.infra.sqlalchemy.models.models import Usuario
 
-def response_usuario_cadastrado(usuario):
-    if usuario.administrador == 1:
+def response_usuario_cadastrado(model_usuario: Usuario):
+    if model_usuario.administrador == 1:
         admin = True
     else:
         admin = False
     response = {
         "dados": {
-        "login": usuario.login,
+        "login": model_usuario.login,
         "admin": admin
         },        
         "status": {
