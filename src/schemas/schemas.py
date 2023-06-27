@@ -9,10 +9,10 @@ class DadosCadastroUsuario(BaseModel):
         orm_mode = True
 
 class DadosNovoProduto(BaseModel):
-    nome: str
-    categoria: str
-    descricao: str | None = None
-    preco: float
+    nome_produto: str
+    categoria_produto: str
+    desc_produto: str | None = None
+    preco_produto: float
 
     class Config:
         orm_mode = True    
@@ -26,9 +26,19 @@ class DadosSimplesDoUsuario(BaseModel):
         orm_mode = True
 
 class DadosSimplesDoProduto(BaseModel):
-    nome: str
-    codigo: str
-    preco: float
+    nome_produto: str
+    codigo_produto: str
+    preco_produto: float
+    estoque_disp: int
+
+    class Config:
+        orm_mode = True
+
+class DadosAtualizarProduto(BaseModel):
+    nome_produto: str
+    categoria_produto: str
+    desc_produto: str
+    preco_produto: float
     estoque_disp: int
 
     class Config:
