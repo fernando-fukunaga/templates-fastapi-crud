@@ -1,4 +1,4 @@
-from src.infra.sqlalchemy.config import Base
+from src.infra.sqlalchemy.config.database import Base
 from sqlalchemy import Column, String, Integer, Boolean, DECIMAL
 
 class Usuario(Base):

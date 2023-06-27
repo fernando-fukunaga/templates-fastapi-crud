@@ -1,5 +1,5 @@
 from fastapi import APIRouter, HTTPException
-from infra.sqlalchemy.config.database import *
+from src.infra.sqlalchemy.config import database
 import uuid
 
 router = APIRouter(tags=["Produtos"])

@@ -10,3 +10,13 @@ engine = create_engine(
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
+
+def criar_banco_de_dados():
+    Base.metadata.create_all(bind=engine)
+
+def get_banco_de_dados():
+    banco_de_dados = SessionLocal()
+    try:
+        yield banco_de_dados
+    finally:
+        banco_de_dados.close()
